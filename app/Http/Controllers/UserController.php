@@ -14,9 +14,8 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {   $usuarios = User::all();
-        return view("Usuarios/index", ["Usuarios" => $usuarios]);
+    public function index(){
+        return view("Usuarios/index");
     }
 
     /**
