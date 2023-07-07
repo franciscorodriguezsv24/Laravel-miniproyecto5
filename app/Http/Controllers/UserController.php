@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
@@ -22,7 +24,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        $roles = Role::all();
+        return view("Usuarios/create", compact("roles"));
     }
 
     /**
@@ -30,7 +33,21 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            "nombre" => ["requiered"],
+            "email" => ["requiered"],
+            "pass" => ["requiered"],
+            "rol" => ["requiered"],
+
+        ]);
+
+        User::create([
+            "name" => $request->nombre,
+            "email" => $request->email,
+            "password" => Hash::make($request->pass)
+        ])->assignRole($request->rol);
+
+        return redirect()->route("Usuarios.index");
     }
 
     /**
@@ -110,6 +127,9 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $usuario = User::find($id);
+        $usuario->delete();
+        return redirect()->route("Usuarios.index");
+
     }
 }

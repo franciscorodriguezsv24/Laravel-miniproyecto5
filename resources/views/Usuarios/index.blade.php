@@ -1,8 +1,13 @@
 <x-app-layout>
     <x-slot name="header">
+        <div class="flex justify-between">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             Users
+            
         </h2>
+        <a href="{{route('Usuarios.create')}}" class="bg-sky-500 rounded-full  text-white p-2 hover:bg-sky-700">Agregar usuario</a>
+        </div>
+        
     </x-slot>
 
     <div class="py-12">
@@ -51,8 +56,14 @@
                         <span class="bg-green-600 p-1 text-white rounded">editor</span>
                     @endif
                     </td>
-                    <td class="px-6 py-4">
+                    <td class="px-6 py-4 flex flex-row gap-6">
                         <a href="{{route("Usuarios.edit", $usuario->id)}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                        <form action="{{route("Usuarios.destroy", $usuario->id)}}" method="POST">
+                            @csrf
+                            @method("DELETE")
+                            <button type="submit" class="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</button>
+                        </form>
+                        
                     </td>
                 </tr>
             @endforeach
