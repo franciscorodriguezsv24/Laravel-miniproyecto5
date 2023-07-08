@@ -12,12 +12,39 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                    <div class="flex flex-row gap-1">
+                        <i class="fa-solid fa-house self-center"></i>
+                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                            {{ __('Dashboard') }} 
+                        </x-nav-link>
+                    </div>
+                    
+                    <div class="flex flex-row gap-1">
+                        <i class="fa-solid fa-user self-center"></i>
+                        <x-nav-link :href="route('Usuarios.index')" :active="request()->routeIs('Usuarios.index')">
+                            {{ __('Usuarios') }}
+                        </x-nav-link>
+                    </div>
+                    <div class="flex flex-row gap-1"> 
+                    <i class="fa-solid fa-chalkboard-user self-center"></i>
+                    <x-nav-link :href="route('maestros.index')" :active="request()->routeIs('maestros.index')">
+                        {{ __('Maestros') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('Usuarios.index')" :active="request()->routeIs('Usuarios.index')">
-                        {{ __('Usuarios') }}
+                    </div>
+
+                    <div class="flex flex-row gap-1"> 
+                    <i class="fa-solid fa-graduation-cap self-center"></i>
+                    <x-nav-link :href="route('alumnos.index')" :active="request()->routeIs('alumnos.index')">
+                        {{ __('Alumnos') }}
                     </x-nav-link>
+                    </div>
+                    <div class="flex flex-row gap-1">
+                        <i class="fa-solid fa-chalkboard self-center"></i>
+                        <x-nav-link :href="route('cursos.index')" :active="request()->routeIs('cursos.index')">
+                            {{ __('Clases') }}
+                        </x-nav-link>
+                    </div>
+                    
                 </div>
             </div>
 
@@ -76,7 +103,17 @@
             <x-responsive-nav-link :href="route('Usuarios.index')" :active="request()->routeIs('Usuarios.index')">
                 {{ __('Usuarios') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('maestros.index')" :active="request()->routeIs('maestros.index')">
+                {{ __('Maestros') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('alumnos.index')" :active="request()->routeIs('alumnos.index')">
+                {{ __('Alumnos') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('cursos.index')" :active="request()->routeIs('cursos.index')">
+                {{ __('Clases') }}
+            </x-responsive-nav-link>
         </div>
+   
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">

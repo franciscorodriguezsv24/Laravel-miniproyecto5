@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\AlumnoController;
+use App\Http\Controllers\CursoController;
+use App\Http\Controllers\MaestroController;
+use App\Http\Controllers\MaestroControllerr;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -24,6 +28,12 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::resource('Usuarios', UserController::class)->names('Usuarios');
+
+Route::resource('cursos',CursoController::class)->names('cursos');
+
+Route::resource('maestros',MaestroController::class)->names('maestros');
+
+Route::resource('alumnos', AlumnoController::class)->names('alumnos');
 
 Route::put("Usuarios/{id}", [UserController::class, 'update'])->name("update");
 
