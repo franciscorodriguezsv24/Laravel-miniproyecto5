@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Curso;
 use Illuminate\Http\Request;
 
 class CursoController extends Controller
@@ -11,7 +12,8 @@ class CursoController extends Controller
      */
     public function index()
     {
-        return  view("cursos/index");
+        $cursos = Curso::all();
+        return  view("cursos/index", compact('cursos'));
     }
 
     /**
@@ -43,7 +45,9 @@ class CursoController extends Controller
      */
     public function edit(string $id)
     {
-        //
+    
+        $curso = Curso::find($id);
+        return view("cursos/edit", compact("curso"));
     }
 
     /**
@@ -51,7 +55,14 @@ class CursoController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $alumno = Curso::find($id);
+        $alumno->id = $request->input('id');
+        $alumno->Clase = $request->input ('Clase');
+        $alumno->Maestro = $request->input ('Maestro');
+        $alumno->inscritos = $request->input ('Inscritos');
+        $alumno->save();
+
+        return redirect()->route("cursos.index");
     }
 
     /**

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Maestro;
 use Illuminate\Http\Request;
 
 class MaestroController extends Controller
@@ -11,7 +12,8 @@ class MaestroController extends Controller
      */
     public function index()
     {
-        return view('maestros/index');
+        $maestros = Maestro::all();
+        return view('maestros/index', compact('maestros'));
     }
 
     /**
@@ -43,7 +45,8 @@ class MaestroController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $maestro = Maestro::find($id);
+        return view("maestros/edit", compact("maestro"));
     }
 
     /**
@@ -51,7 +54,16 @@ class MaestroController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $maestro = Maestro::find($id);
+        $maestro->id = $request->input('id');
+        $maestro->Nombre = $request->input ('Nombre');
+        $maestro->Correo = $request->input ('Correo');
+        $maestro->Direccion = $request->input ('Direccion');
+        $maestro->asig = $request->input ('asig');
+        $maestro->fecha_de_nacimiento = $request->input ('fecha_de_nacimiento');
+        $maestro->save();
+
+        return redirect()->route("maestros.index");
     }
 
     /**

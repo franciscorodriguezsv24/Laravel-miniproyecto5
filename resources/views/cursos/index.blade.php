@@ -25,13 +25,13 @@
                         ID
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Name
+                        Clase
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Email
+                        Maestro
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Rol
+                        Inscritos
                     </th>
                     <th scope="col" class="px-6 py-3">
                         Action
@@ -39,27 +39,23 @@
                 </tr>
             </thead>
             <tbody>
-                {{-- @foreach ($usuarios as $usuario) --}}
+                @foreach ($cursos as $curso)
                     <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{-- {{$usuario->id}} --}}
+                        {{$curso->id}}
                         </th>
                         <td class="px-6 py-4">
-                        {{-- {{$usuario->name}} --}}
+                        {{$curso->Clase}}
                         </td>
                         <td class="px-6 py-4">
-                        {{-- {{$usuario->email}} --}}
+                        {{$curso->Maestro}}
                         </td>
                         <td class="px-6 py-4">
-                        {{-- @if ($usuario->HasRole('admin')) --}}
-                            <span class="bg-red-400 p-1 text-white rounded">Admin</span>
-                        {{-- @endif --}}
-                        {{-- @if ($usuario->HasRole('editor')) --}}
-                            {{-- <span class="bg-green-600 p-1 text-white rounded">editor</span> --}}
-                        {{-- @endif --}}
+                        {{$curso->Inscritos}}
                         </td>
+                     
                         <td class="px-6 py-4 flex flex-row gap-6">
-                            <a href="{{--{{route("Usuarios.edit", $usuario->id)}}--}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                            <a href="{{route("cursos.edit", $curso->id)}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
                             {{-- <form action="{{route("Usuarios.destroy", $usuario->id)}}" method="POST"> --}}
                                 {{-- @csrf --}}
                                 {{-- @method("DELETE") --}}
@@ -68,7 +64,7 @@
                             
                         </td>
                     </tr>
-                {{-- @endforeach --}}
+                @endforeach
                 
             </tbody>
         </table>
