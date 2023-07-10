@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Alumno;
 use Illuminate\Http\Request;
 
 class AlumnoController extends Controller
@@ -11,7 +12,8 @@ class AlumnoController extends Controller
      */
     public function index()
     {
-        return view('alumnos/index');
+       $alumnos = Alumno::all();
+        return view('alumnos/index' ,compact('alumnos'));
     }
 
     /**
@@ -43,7 +45,8 @@ class AlumnoController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $alumno = Alumno::find($id);
+        return view("alumnos/edit", compact("alumno"));
     }
 
     /**
@@ -51,7 +54,16 @@ class AlumnoController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $alumno = Alumno::find($id);
+        $alumno->id = $request->input('id');
+        $alumno->DUI = $request->input ('DUI');
+        $alumno->Nombre = $request->input ('Nombre');
+        $alumno->Correo = $request->input ('Correo');
+        $alumno->Direccion = $request->input ('Direccion');
+        $alumno->fecha_de_nacimiento = $request->input ('fecha_de_nacimiento');
+        $alumno->save();
+
+        return redirect()->route("alumnos.index");
     }
 
     /**

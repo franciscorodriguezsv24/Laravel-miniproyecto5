@@ -12,8 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('maestros', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->id('id');
+            $table->string('Nombre');
+            $table->string('Correo');
+            $table->string('Direccion');
+            $table->date('fecha_de_nacimiento');
+            $table->string('Clase_asignada');
         });
     }
 
