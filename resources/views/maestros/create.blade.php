@@ -21,9 +21,6 @@
                             <label for="Direccion">Direccion:</label>
                             <input type="text" name="Direccion" id="Direccion" required>
 
-                            <label for="asig">Asignacion:</label>
-                            <input type="text" name="asig" id="asig" required>
-
                             <label for="fecha_de_nacimiento">Fecha de nacimiento:</label>
                             <input type="date" name="fecha_de_nacimiento" id="fecha_de_nacimiento" required>
                             

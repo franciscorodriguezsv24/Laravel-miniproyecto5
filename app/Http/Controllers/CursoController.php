@@ -70,8 +70,6 @@ class CursoController extends Controller
         $alumno = Curso::find($id);
         $alumno->id = $request->input('id');
         $alumno->Clase = $request->input ('Clase');
-        $alumno->Maestro = $request->input ('Maestro');
-        $alumno->inscritos = $request->input ('Inscritos');
         $alumno->save();
 
         return redirect()->route("cursos.index");
@@ -82,6 +80,8 @@ class CursoController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $usuario = Curso::find($id);
+        $usuario->delete();
+        return redirect()->route("cursos.index");
     }
 }

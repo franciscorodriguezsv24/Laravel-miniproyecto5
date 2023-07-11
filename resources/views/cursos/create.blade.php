@@ -10,7 +10,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                        <form class="flex flex-col gap-3" method="POST" action="{{route('alumnos.store')}}">
+                        <form class="flex flex-col gap-3" method="POST" action="{{route('cursos.store')}}">
                             @csrf
                             
                             <label for="Clase">Clase:</label>

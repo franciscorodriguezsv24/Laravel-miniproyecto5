@@ -9,6 +9,8 @@ class Curso extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['Clase'];
+
     public $timestamps = false;
 
     public function maestros(){

@@ -36,7 +36,7 @@ class AlumnoController extends Controller
             "Nombre" => ["requiered"],
             "Correo" => ["requiered"],
             "Direccion" => ["requiered"],
-            "fecha_de_nacimiento" => ["requiered"],
+            "nacimiento" => ["requiered"],
 
 
         ]);
@@ -46,7 +46,7 @@ class AlumnoController extends Controller
             "Nombre" => $request->Nombre,
             "Correo" => $request->Correo,
             "Direccion" => $request->Direccion,
-            "fecha_de_nacimiento" => $request->fecha_de_nacimiento
+            "nacimiento" => $request->nacimiento
         ]);
 
         return redirect()->route("alumnos.index");
@@ -91,6 +91,8 @@ class AlumnoController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $usuario = Alumno::find($id);
+        $usuario->delete();
+        return redirect()->route("alumnos.index");
     }
 }

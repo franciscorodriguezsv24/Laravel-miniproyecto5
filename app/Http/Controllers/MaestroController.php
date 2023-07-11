@@ -42,7 +42,7 @@ class MaestroController extends Controller
         Maestro::create([
             "Nombre" => $request->Nombre,
             "Correo" => $request->Correo,
-            "Direccion" => $request->Correo,
+            "Direccion" => $request->Direccion,
             "fecha_de_nacimiento" => $request->fecha_de_nacimiento
         ]);
 
@@ -87,6 +87,8 @@ class MaestroController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $usuario = Maestro::find($id);
+        $usuario->delete();
+        return redirect()->route("maestros.index");
     }
 }

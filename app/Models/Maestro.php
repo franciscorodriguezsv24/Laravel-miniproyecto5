@@ -9,8 +9,12 @@ class Maestro extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
+    protected $fillable = ['Nombre', 'Correo', 'Direccion', 'fecha_de_nacimiento'];
+
     public function clases(){
         return $this->belongsToMany(Curso::class, 'curso_maestros');
     }
-    public $timestamps = false;
+   
 }
