@@ -15,7 +15,8 @@ class RoleSeeder extends Seeder
     public function run(): void
     {
         $role1 = Role::create(['name' => 'admin']);
-        $role2 = Role::create(['name' => 'editor']);
+        $role2 = Role::create(['name' => 'maestro']);
+
 
         Permission::create(['name' => 'ver dashboard'])->syncRoles([$role1, $role2]);
 

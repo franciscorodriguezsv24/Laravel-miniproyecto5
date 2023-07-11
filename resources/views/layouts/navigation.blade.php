@@ -18,6 +18,7 @@
                             {{ __('Dashboard') }} 
                         </x-nav-link>
                     </div>
+                    @role('admin')
                     
                     <div class="flex flex-row gap-1">
                         <i class="fa-solid fa-user self-center"></i>
@@ -25,19 +26,23 @@
                             {{ __('Usuarios') }}
                         </x-nav-link>
                     </div>
+                    @endrole
+                    @role('admin')
                     <div class="flex flex-row gap-1"> 
                     <i class="fa-solid fa-chalkboard-user self-center"></i>
                     <x-nav-link :href="route('maestros.index')" :active="request()->routeIs('maestros.index')">
                         {{ __('Maestros') }}
                     </x-nav-link>
                     </div>
-
+                    @endrole
+                    @role('admin')
                     <div class="flex flex-row gap-1"> 
                     <i class="fa-solid fa-graduation-cap self-center"></i>
                     <x-nav-link :href="route('alumnos.index')" :active="request()->routeIs('alumnos.index')">
                         {{ __('Alumnos') }}
                     </x-nav-link>
                     </div>
+                    @endrole
                     <div class="flex flex-row gap-1">
                         <i class="fa-solid fa-chalkboard self-center"></i>
                         <x-nav-link :href="route('cursos.index')" :active="request()->routeIs('cursos.index')">

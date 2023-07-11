@@ -30,14 +30,14 @@ class DatabaseSeeder extends Seeder
         User::create([
             "name" => "Adriana Bonilla",
             "email" => "editor@editor.com",
-            "password" => Hash::make("editor")
-        ])->assignRole("editor");
+            "password" => Hash::make("maestro")
+        ])->assignRole("maestro");
 
         User::create([
             "name" => "Ana Elizabeth Noyola",
             "email" => "editor1@editor.com",
-            "password" => Hash::make("editor")
-        ])->assignRole("editor");
+            "password" => Hash::make("maestro")
+        ])->assignRole("maestro");
 
         User::create([
             "name" => "Juan Jose Calles",
@@ -48,14 +48,14 @@ class DatabaseSeeder extends Seeder
         User::create([
             "name" => "Mario Solorzano",
             "email" => "editor2@editor.com",
-            "password" => Hash::make("editor")
-        ])->assignRole("editor");
+            "password" => Hash::make("maestro")
+        ])->assignRole("maestro");
         
         User::create([
             "name" => "Ismael Villeda",
             "email" => "editor3@editor.com",
-            "password" => Hash::make("editor")
-        ])->assignRole("editor");
+            "password" => Hash::make("maestro")
+        ])->assignRole("maestro");
         
         User::create([
             "name" => "Juan Jose Iglesias",
@@ -66,20 +66,20 @@ class DatabaseSeeder extends Seeder
         User::create([
             "name" => "Maria Isabel Gomez",
             "email" => "editor4@editor.com",
-            "password" => Hash::make("editor")
-        ])->assignRole("editor");
+            "password" => Hash::make("maestro")
+        ])->assignRole("maestro");
 
         User::create([
             "name" => "Xiomara caceres",
             "email" => "editor5@editor.com",
-            "password" => Hash::make("editor")
-        ])->assignRole("editor");
+            "password" => Hash::make("maestro")
+        ])->assignRole("maestro");
 
         User::create([
             "name" => "Rene Isaac Melara",
             "email" => "editor6@editor.com",
-            "password" => Hash::make("editor")
-        ])->assignRole("editor");
+            "password" => Hash::make("maestro")
+        ])->assignRole("maestro");
         
 
         Curso::factory(10)->create();

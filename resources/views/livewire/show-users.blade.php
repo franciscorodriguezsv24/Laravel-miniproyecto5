@@ -36,8 +36,8 @@
                     @if ($usuario->HasRole('admin'))
                         <span class="bg-red-400 p-1 text-white rounded">Admin</span>
                     @endif
-                    @if ($usuario->HasRole('editor'))
-                        <span class="bg-green-600 p-1 text-white rounded">editor</span>
+                    @if ($usuario->HasRole('maestro'))
+                        <span class="bg-green-600 p-1 text-white rounded">maestro</span>
                     @endif
                     </td>
                     <td class="px-6 py-4 flex flex-row gap-6">

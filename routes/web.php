@@ -26,14 +26,18 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
-
+Route::middleware('role:admin')->group(function (){
 Route::resource('Usuarios', UserController::class)->names('Usuarios');
+});
+
 
 Route::resource('cursos',CursoController::class)->names('cursos');
-
-Route::resource('maestros',MaestroController::class)->names('maestros');
-
-Route::resource('alumnos', AlumnoController::class)->names('alumnos');
+Route::middleware('role:admin')->group(function (){
+    Route::resource('maestros',MaestroController::class)->names('maestros');
+});
+Route::middleware('role:admin')->group(function (){
+    Route::resource('alumnos', AlumnoController::class)->names('alumnos');
+});
 
 Route::put("Usuarios/{id}", [UserController::class, 'update'])->name("update");
 
