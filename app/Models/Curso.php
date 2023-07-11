@@ -10,4 +10,8 @@ class Curso extends Model
     use HasFactory;
 
     public $timestamps = false;
+
+    public function maestros(){
+        return $this->belongsToMany(Maestro::class, 'curso_maestros');
+    }
 }

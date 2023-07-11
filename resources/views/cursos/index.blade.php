@@ -47,11 +47,14 @@
                         <td class="px-6 py-4">
                         {{$curso->Clase}}
                         </td>
-                        <td class="px-6 py-4">
-                        {{$curso->Maestro}}
-                        </td>
+                        
                         <td class="px-6 py-4">
                         {{$curso->Inscritos}}
+                        </td>
+                        <td class="px-6 py-4">
+                            @foreach($maestros->clases as $asignacion)
+                        {{$asignacion->curso_id}}
+                            @endforeach
                         </td>
                         <td class="px-6 py-4 flex flex-row gap-6">
                             <a href="{{route("cursos.edit", $curso->id)}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
@@ -63,7 +66,7 @@
                             
                         </td>
                     </tr>
-                @endforeach
+                    @endforeach
                 
             </tbody>
         </table>

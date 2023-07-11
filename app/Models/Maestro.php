@@ -9,5 +9,8 @@ class Maestro extends Model
 {
     use HasFactory;
 
+    public function clases(){
+        return $this->belongsToMany(Curso::class, 'curso_maestros');
+    }
     public $timestamps = false;
 }

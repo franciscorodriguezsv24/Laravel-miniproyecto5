@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Curso;
+use App\Models\CursoMaestro;
+use App\Models\Maestro;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -12,9 +14,9 @@ class CursoController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
+    {   $maestros = Maestro::find(1);
         $cursos = Curso::all();
-        return  view("cursos/index", compact('cursos'));
+        return  view("cursos/index", compact('maestros', 'cursos'));
     }
 
     /**
