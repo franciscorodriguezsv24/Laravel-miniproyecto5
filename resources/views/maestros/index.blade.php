@@ -5,7 +5,7 @@
             Maestros
             
         </h2>
-        <a href="{{route('Usuarios.create')}}" class="bg-sky-500 rounded-full  text-white p-2 hover:bg-sky-700">Agregar Maestro</a>
+        <a href="{{route('maestros.create')}}" class="bg-sky-500 rounded-full  text-white p-2 hover:bg-sky-700">Agregar Maestro</a>
         </div>
         
     </x-slot>
@@ -34,10 +34,10 @@
                         Direccion
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Asignacion
+                        Fecha de nacimiento
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Fecha de nacimiento
+                        Acciones
                     </th>
                 </tr>
             </thead>
@@ -55,9 +55,6 @@
                         </td>
                         <td class="px-6 py-4">
                         {{$maestro->Direccion}}
-                        </td>
-                        <td class="px-6 py-4">
-                        {{$maestro->asig}}
                         </td>
                         <td class="px-6 py-4">
                         {{$maestro->fecha_de_nacimiento}}

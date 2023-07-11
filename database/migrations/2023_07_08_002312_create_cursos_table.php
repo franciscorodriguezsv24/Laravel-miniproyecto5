@@ -14,8 +14,6 @@ return new class extends Migration
         Schema::create('cursos', function (Blueprint $table) {
             $table->id();
             $table->string('Clase');
-            $table->string('Maestro');
-            $table->string('alumnos_inscritos');
         });
     }
 

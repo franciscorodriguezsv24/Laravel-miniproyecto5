@@ -5,7 +5,7 @@
             Clases
             
         </h2>
-        <a href="{{route('Usuarios.create')}}" class="bg-sky-500 rounded-full  text-white p-2 hover:bg-sky-700">Agregar clase</a>
+        <a href="{{route('cursos.create')}}" class="bg-sky-500 rounded-full  text-white p-2 hover:bg-sky-700">Agregar clase</a>
         </div>
         
     </x-slot>
@@ -53,7 +53,6 @@
                         <td class="px-6 py-4">
                         {{$curso->Inscritos}}
                         </td>
-                     
                         <td class="px-6 py-4 flex flex-row gap-6">
                             <a href="{{route("cursos.edit", $curso->id)}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
                             {{-- <form action="{{route("Usuarios.destroy", $usuario->id)}}" method="POST"> --}}

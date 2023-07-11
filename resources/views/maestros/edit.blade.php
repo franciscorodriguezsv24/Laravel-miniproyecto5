@@ -40,24 +40,16 @@
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">
-                            Clase asignada
-                            </label>
-                            <input type="text" class="form-control" id="exampleInputPassword1" required value="{{ $maestro->asig}}" name="asig">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">
                             Fecha de nacimiento
                             </label>
                             <input type="date" class="form-control" id="exampleInputPassword1" required value="{{ $maestro->fecha_de_nacimiento}}" name="fecha_de_nacimiento">
                         </div>
-                       
-                       
-                       <button type="submit" class="btn" style="background-color: #456856; color:white;">Submit</button>
-                   </form>
+                        <button type="submit" class="btn" style="background-color: #456856; color:white;">Submit</button>
+                    </form>
 
-                   </div>
-               </div>
-           </div>
-       </div>
-   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </x-app-layout>

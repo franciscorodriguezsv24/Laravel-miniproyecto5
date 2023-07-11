@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Alumno;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class AlumnoController extends Controller
 {
@@ -21,7 +23,7 @@ class AlumnoController extends Controller
      */
     public function create()
     {
-        //
+        return view("alumnos/create");
     }
 
     /**
@@ -29,7 +31,25 @@ class AlumnoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            "DUI" => ["requiered"],
+            "Nombre" => ["requiered"],
+            "Correo" => ["requiered"],
+            "Direccion" => ["requiered"],
+            "fecha_de_nacimiento" => ["requiered"],
+
+
+        ]);
+
+        Alumno::create([
+            "DUI" => $request->DUI,
+            "Nombre" => $request->Nombre,
+            "Correo" => $request->Correo,
+            "Direccion" => $request->Direccion,
+            "fecha_de_nacimiento" => $request->fecha_de_nacimiento
+        ]);
+
+        return redirect()->route("alumnos.index");
     }
 
     /**
@@ -60,7 +80,7 @@ class AlumnoController extends Controller
         $alumno->Nombre = $request->input ('Nombre');
         $alumno->Correo = $request->input ('Correo');
         $alumno->Direccion = $request->input ('Direccion');
-        $alumno->fecha_de_nacimiento = $request->input ('fecha_de_nacimiento');
+        $alumno->nacimiento = $request->input ('nacimiento');
         $alumno->save();
 
         return redirect()->route("alumnos.index");

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Maestro;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class MaestroController extends Controller
 {
@@ -21,7 +22,7 @@ class MaestroController extends Controller
      */
     public function create()
     {
-        //
+        return view("maestros/create");
     }
 
     /**
@@ -29,7 +30,23 @@ class MaestroController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            "Nombre" => ["requiered"],
+            "Correo" => ["requiered"],
+            "Direccion" => ["requiered"],
+            "fecha_de_nacimiento" => ["requiered"],
+
+
+        ]);
+
+        Maestro::create([
+            "Nombre" => $request->Nombre,
+            "Correo" => $request->Correo,
+            "Direccion" => $request->Correo,
+            "fecha_de_nacimiento" => $request->fecha_de_nacimiento
+        ]);
+
+        return redirect()->route("maestros.index");
     }
 
     /**
@@ -59,7 +76,6 @@ class MaestroController extends Controller
         $maestro->Nombre = $request->input ('Nombre');
         $maestro->Correo = $request->input ('Correo');
         $maestro->Direccion = $request->input ('Direccion');
-        $maestro->asig = $request->input ('asig');
         $maestro->fecha_de_nacimiento = $request->input ('fecha_de_nacimiento');
         $maestro->save();
 

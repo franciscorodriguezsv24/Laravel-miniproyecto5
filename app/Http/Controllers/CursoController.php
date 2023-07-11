@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Curso;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CursoController extends Controller
 {
@@ -21,7 +22,7 @@ class CursoController extends Controller
      */
     public function create()
     {
-        //
+        return view("cursos/create");
     }
 
     /**
@@ -29,7 +30,16 @@ class CursoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            "Clase" => ["requiered"],
+
+        ]);
+
+        Curso::create([
+            "Clase" => $request->Clase,
+        ]);
+
+        return redirect()->route("cursos.index");
     }
 
     /**

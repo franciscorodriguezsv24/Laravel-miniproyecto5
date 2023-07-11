@@ -4,6 +4,9 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Alumno;
+use App\Models\Curso;
+use App\Models\Maestro;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -79,7 +82,11 @@ class DatabaseSeeder extends Seeder
         ])->assignRole("editor");
         
 
-        
+        Curso::factory(10)->create();
+
+        Alumno::factory(12)->create();
+
+        Maestro::factory(12)->create();
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',

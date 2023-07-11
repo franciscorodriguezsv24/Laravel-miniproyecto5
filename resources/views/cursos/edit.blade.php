@@ -15,7 +15,7 @@
            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                <div class="p-6 text-gray-900">
                    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                   <form class="p-5" action="{{route('cursos.update', $curso->id )}}" method="POST">
+                   <form class="p-5" action="{{route('maestros.update', $curso->id )}}" method="POST">
                        @csrf
                        @method('PUT')
                     <div class="mb-3 visually-hidden-focusable">

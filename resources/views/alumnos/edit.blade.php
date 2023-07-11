@@ -46,7 +46,7 @@
                             <label for="exampleInputPassword1" class="form-label">
                              Fecha de Nacimiento
                             </label>
-                            <input type="date" class="form-control" id="exampleInputPassword1" required value="{{ $alumno->fecha_de_nacimiento }}" name="fecha_de_nacimiento">
+                            <input type="date" class="form-control" id="exampleInputPassword1" required value="{{ $alumno->nacimiento }}" name="nacimiento">
                         </div>
                        
                        <button type="submit" class="btn" style="background-color: #456856; color:white;">Submit</button>

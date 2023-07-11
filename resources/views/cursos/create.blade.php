@@ -12,19 +12,9 @@
                     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                         <form class="flex flex-col gap-3" method="POST" action="{{route('alumnos.store')}}">
                             @csrf
-                            <label for="DUI">DUI:</label>
-                            <input type="text" name="DUI" id="DUI" required>
-                            <label for="Nombre">Nombre:</label>
-                            <input type="text" name="Nombre" id="Nombre" required>
-    
-                            <label for="Correo">Correo:</label>
-                            <input type="email" name="Correo" id="Correo" required>
-    
-                            <label for="Direccion">Direccion:</label>
-                            <input type="text" name="Direccion" id="Direccion" required>
-
-                            <label for="nacimiento">Fecha de nacimiento:</label>
-                            <input type="date" name="nacimiento" id="nacimiento" required>
+                            
+                            <label for="Clase">Clase:</label>
+                            <input type="text" name="Clase" id="Clase" required>
     
     
                             <button type="submit" class="text-white bg-sky-950 p-1 rounded-md">Crear usuario</button>

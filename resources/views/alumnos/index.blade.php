@@ -62,7 +62,7 @@
                             {{$alumno->Direccion}}
                             </td>
                         <td class="px-6 py-4">
-                            {{$alumno->fecha_de_nacimiento}}
+                            {{$alumno->nacimiento}}
                         
                         </td>
                         <td class="px-6 py-4 flex flex-row gap-6">
